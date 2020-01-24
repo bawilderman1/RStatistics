@@ -1,0 +1,95 @@
+---
+title: "Exploring the BRFSS data"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+---
+
+## Setup
+
+### Load packages
+
+```{r load-packages, message = FALSE}
+library(ggplot2)
+library(dplyr)
+library(skimr)
+library(DataExplorer)
+library(ggcorrplot)
+```
+
+### Load data
+
+Make sure your data and R Markdown files are in the same directory. When loaded
+your data file will be called `brfss2013`. Delete this note when before you submit 
+your work. 
+
+```{r load-data}
+load("brfss2013.RData")
+```
+
+
+
+* * *
+
+## Part 1: Data
+```{r data}
+subset_brfss <- brfss2013 %>% 
+  select(X_state, idate, cellfon3, hlthpln1, medcost, checkup1, sleptim1, cvdinfr4,  cvdcrhd4, cvdstrk3, marital, educa, employ1, income2, renthom1, sex, cvdasprn, scntwrk1, X_age_g, X_age80)
+
+skim(subset_brfss)
+
+#str(brfss2013)
+#skim(brfss2013)
+```
+
+```{r}
+with(subset_brfss, table(X_age80))
+
+plot_histogram(subset_brfss)
+
+plot_boxplot(subset_brfss, by = "X_state")
+```
+
+* * *
+
+## Part 2: Research questions
+
+**Research quesion 1:**
+
+**Research quesion 2:**
+
+**Research quesion 3:**
+
+
+* * *
+
+## Part 3: Exploratory data analysis
+
+NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
+button (green button with orange arrow) above. Make sure that your code is visible
+in the project you submit. Delete this note when before you submit your work.
+
+**Research quesion 1:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 2:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 3:**
+
+```{r}
+
+```
+
